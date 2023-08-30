@@ -1,1 +1,64 @@
+public class Elevator {
+private int currentFloor;
+private int minFloor;
+private int maxFloor;
+
+public Elevator(int minFloor, int maxFloor) {
+this.minFloor = minFloor;
+this.maxFloor = maxFloor;
+this.currentFloor = 1;
+}
+
+public int getCurrentFloor() {
+return currentFloor;
+}
+
+public void setCurrentFloor(int currentFloor) {
+this.currentFloor = currentFloor;
+}
+public int getMinFloor() {
+return minFloor;
+}
+public void setMinFloor(int minFloor) {
+this.minFloor = minFloor;
+}
+public int getMaxFloor() {
+return maxFloor;
+}
+public void setMaxFloor(int maxFloor) {
+this.maxFloor = maxFloor;
+}
+
+
+public void moveDown() {
+if (currentFloor > minFloor) {
+currentFloor--;
+}
+}
+public void moveUp() {
+if (currentFloor < maxFloor) {
+currentFloor++;
+}
+}
+
+public void move(int floor) {
+if (floor >= minFloor && floor <= maxFloor) {
+while (currentFloor != floor) {
+if (currentFloor < floor) {
+moveUp();
+} else {
+moveDown();
+}
+System.out.println("Текущий этаж: " + currentFloor);
+}
+} else {
+System.out.println("Ошибка: неверно указан этаж");
+}
+}
+}
+public class Main {
+public static void main(String[] args) {
+Elevator elevator = new Elevator(1, 10);
+System.out.println(elevator.getCurrentFloor()); 
+
 
